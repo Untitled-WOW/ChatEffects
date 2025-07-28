@@ -326,19 +326,35 @@ bubbleWatcher:SetScript("OnUpdate", function()
             local style = rawStyle == "rainbow" and "glowrainbow" or rawStyle
             local existing = chatBubbleAnimations[textObj]
 
-            if style and (not existing or existing.text ~= cleanText) then
-                local colors = glowColours[style] or flashColours[style]
-                if colors then
-                    chatBubbleAnimations[textObj] = {
-                        text = cleanText,
-                        colors = colors,
-                        phase = math.random(),
-                        speed = bubbleSpeeds[style] or 0.5,
-                        lastColor = "",
-                        mode = flashColours[style] and "flash" or "glow",
-                    }
-                end
-            elseif not style and not chatBubbleAnimations[textObj] then
+
+			if style and (not existing or existing.text ~= cleanText) then
+				local colors = glowColours[style] or flashColours[style]
+				if colors then
+					chatBubbleAnimations[textObj] = {
+						text = cleanText,
+						colors = colors,
+						phase = math.random(),
+						speed = bubbleSpeeds[style] or 0.5,
+						lastColor = "",
+						mode = flashColours[style] and "flash" or "glow",
+					}
+				else
+					-- Static color support (e.g., red:, blue:)
+					local rgb = staticColors[style]
+					if rgb then
+						local hexText = string.format("|cff%02x%02x%02x%s|r", rgb[1]*255, rgb[2]*255, rgb[3]*255, cleanText)
+						textObj:SetText(hexText)
+					else
+						-- Pattern color support (e.g., patternabc:)
+						local pat = style:match("^pattern([0-9a-z]+)$")
+						if pat then
+							local recolored = BuildPattern(cleanText, pat)
+							textObj:SetText(recolored)
+						end
+					end
+				end
+			elseif not style and not chatBubbleAnimations[textObj] then
+
                 -- Fallback: static/pattern/rainbow
                 local recolored
                 local pat, clean = text:match("^pattern([0-9a-z]+):%s*(.+)")
