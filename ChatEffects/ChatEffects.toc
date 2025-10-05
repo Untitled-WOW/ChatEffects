@@ -2,7 +2,6 @@
 ## Title: Chat Colour Effects
 ## Notes: Add colour effects to chat messages and bubbles.|n|n|cffffff00yellow:|r |cffff0000red:|r |cff00ff00green:|r |cff00ffffcyan:|r |cff800080purple:|r |cffffffffwhite:|r |cff0000ffblue:|r |cffff69b4pink:|r|nflash1:  Flashes between |cffff0000Red|r and |cffffff00Yellow.|r|nflash2:  Flashes between |cff00ffffCyan|r and |cff0000ffBlue.|r|nflash3:  Flashes between |cff00ff00Light Green|r and |cff006600Dark Green.|r|nglow1:   Fades |cffff0000Red|r -> |cffff8000Orange|r -> |cffffff00Yellow|r -> |cff00ff00Green|r -> |cff00ffffCyan.|r|nglow2:   Fades |cffff0000Red|r -> |cffff00ffMagenta|r -> |cff0000ffBlue|r -> |cff800000Dark Red.|r|nglow3:   Fades |cffffffffWhite|r -> |cff00ff00Green|r -> |cffffffffWhite|r -> |cff00ffffCyan.|r|nrainbow: |cffff0000R|r|cffff7f00a|r|cffffff00i|r|cff00ff00n|r|cff00ffffb|r|cff0000ffo|r|cffff00ffw|r.|npattern: Allows messages in a custom pattern of colors
 ## Author: Untitled - Discord@Llama69420
-## Version: 1.3
-## DefaultState: disabled
+## Version: 1.3.1
 
 ChatEffects.lua
